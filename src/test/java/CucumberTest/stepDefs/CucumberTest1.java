@@ -2,6 +2,7 @@ package CucumberTest.stepDefs;
 
 import CucumberTest.DataCucumberTest1;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,10 @@ public class CucumberTest1 {
     @Autowired
     private DataCucumberTest1 dataCucumberTest1; // = null;
 
-//    @Before
-//    public void initialisation(){
-//        dataCucumberTest1 = DataCucumberTest1.getInstance();
-//    }
+    @Before
+    public void initialisation(){
+        assertFalse("dataCucumberTest1 is null",dataCucumberTest1 == null);
+    }
 
     @When("^initial value is (\\d+)$")
     public void initialValueIs(int arg0) throws Throwable {
